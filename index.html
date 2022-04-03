@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firefox CORS-safelisted request-header bug</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>🐛 Firefox CORS-safelisted request-header bug</h1>
+
+      <p>Press the "Fetch" button and see the result under the "Result" label.</p>
+      <p>
+        Clicking the button will fetch the first 128 bytes from
+        https://raw.githubusercontent.com/OpenXcom/OpenXcom/master/bin/common/SoldierName/Danish.nam,
+        or in the case of Firefox 99.0b8 (64-bit), throw an error.
+      </p>
+      <p>Use DevTools to get more network information.</p>
+
+      <button id="fetch">Fetch</button>
+
+      <a class="block" href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank">Fetch API Documentation</a>
+
+      <a class="block" href="https://fetch.spec.whatwg.org/#cors-safelisted-request-header" target="_blank">CORS-safelisted request-header documentation</a>
+
+      <hr>
+      <label>Result:<pre id="result"></pre></label>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
