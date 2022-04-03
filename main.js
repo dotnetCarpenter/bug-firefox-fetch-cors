@@ -9,7 +9,7 @@ const resultPre   = appHtml.querySelector ('#result');
 fetchButton.addEventListener ('click', () => {
   fetch (url, {
     headers: {
-      range: 'bytes=0-128'
+      range: 'bytes=0-127'
     }
   }).then (response => {
       response.text ()
