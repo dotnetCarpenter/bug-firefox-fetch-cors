@@ -14,7 +14,13 @@ I think I found a bug in the Fetch implementation in Firefox where the range hea
 
 According to https://fetch.spec.whatwg.org/#cors-safelisted-request-header, `range` is considered a CORS-safelisted request-header if it is a simple range header value (https://fetch.spec.whatwg.org/#simple-range-header-value). E.g. `bytes=0-127` is a simple range header value.
 
-I have created a test-case at https://dotnetcarpenter.github.io/bug-firefox-fetch-cors/.
+> The relevant failing test-case on Web Platform Tests (wpt) is here: https://wpt.fyi/results/cors/cors-safelisted-request-header.any.html?label=experimental&label=master&aligned
+>
+> Source:
+> + http://wpt.live/cors/cors-safelisted-request-header.any.js
+> + https://github.com/web-platform-tests/wpt/blob/902e9dceb10d98a646ad77d46df62e0365626fff/cors/cors-safelisted-request-header.any.js
+
+I have created a reduced test-case at https://dotnetcarpenter.github.io/bug-firefox-fetch-cors/.
 
 1. Press the "Fetch" button and see the result under the "Result" label.
 2. Use DevTools to see the error, "CORS Preflight Did Not Succeed".
@@ -48,7 +54,7 @@ fetchButton.addEventListener ('click', () => {
 
 ## Actual results:
 
-1. Go to https://github.com/dotnetCarpenter/bug-firefox-fetch-cors
+1. Go to https://dotnetcarpenter.github.io/bug-firefox-fetch-cors/
 2. Clicking the button will fetch the first 128 bytes from raw.githubusercontent.com/OpenXcom/OpenXcom/bin/common/SoldierName/Danish.nam, or in the case of Firefox 99.0b8 (64-bit), throw an error.
 
 
